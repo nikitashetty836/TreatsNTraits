@@ -146,22 +146,22 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 			level2.addActionListener(this);
 			level3.addActionListener(this);
 
-			level1.setSize(500,80);			//add size and location to all buttons
-			level1.setLocation(100,300);
-	/*		level1.setOpaque(false);
+			level1.setSize(280,80);			//add size and location to all buttons
+			level1.setLocation(100,400);
+			level1.setOpaque(false);
             level1.setBorderPainted(false);
             level1.setContentAreaFilled(false);
-            level1.setFont(f);*/
+            level1.setFont(f);
 
-			level2.setSize(500,80);
-			level2.setLocation(350,390);
+			level2.setSize(270,80);			//add size and location to all buttons
+			level2.setLocation(475,400);
 			level2.setOpaque(false);
             level2.setBorderPainted(false);
             level2.setContentAreaFilled(false);
 			level2.setFont(f);
 
-			level3.setSize(500,80);
-			level3.setLocation(350,480);
+			level3.setSize(270,80);
+			level3.setLocation(840,400);
 			level3.setOpaque(false);
             level3.setBorderPainted(false);
             level3.setContentAreaFilled(false);
