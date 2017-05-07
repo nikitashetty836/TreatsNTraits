@@ -347,6 +347,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			tntPanel2 = tp;
 			
 			setLayout(null);//set layout null
+			
 		
 			f = new Font ("URW Gothic L", Font.PLAIN, 35);	
 			big = new Font ("URW Gothic L", Font.PLAIN, 70);
@@ -398,7 +399,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 		public void paintComponent(Graphics g)
 		{
-				setBackground(mainBlue);
+				//setBackground(mainBlue);
 				g.drawImage(mysteryDog, 150, 250 , 200, 200, this);
 				g.drawImage(mysteryDog, 490, 250 , 200, 200, this);
 				g.drawImage(mysteryDog, 840, 250 , 200, 200, this);
@@ -527,7 +528,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				add(a3);
 				add(a4);
 				
-				ca1 = false;
+				ca1 = false;								//initializing all booleams as false/ they are eventually true when the buttons are clicked
 				ca2 = false;
 				ca3 = false;
 				ca4 = false;
@@ -559,7 +560,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				//actionPerformed();
 		
 			}
-			public void getTextFile()
+			public void getTextFile() 			//method is just for making sure that the textFile for the quiz questions can be found
 			{
 				File inFile = new File(inFileName);								
 				try
@@ -575,10 +576,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				}
 			}
 			
-			public void resetAttributes()
-			{
-				
-			}
+
 			public void getText()										//method from reading input from the tutorial.txt file so we c an print the stuff from the tutorial.txt file on to the JTextArea
 			{	
 
@@ -592,21 +590,15 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				for(x1=0;x1<29;x1++)
 				{
 			
-					fullQuestion = fullTextFile.substring(0, fullTextFile.indexOf("---")+3)	;		//creating a string to add to the textArea
-					/*if (x1 == 13)
-					{
-						//System.out.print(fullQuestion);
-						//System.out.print(fullQuestion.length());
-						//fullTextFile = fullTextFile.substring(fullQuestion.length());
-					}*/
-					
-					fullTextFile = fullTextFile.substring(fullQuestion.length()+4);				
-					QuizQs[x1] = fullQuestion;
+					fullQuestion = fullTextFile.substring(0, fullTextFile.indexOf("---")+3)	;		//this separates the big string that is the textFile of quiz questions into individual questions
+					fullTextFile = fullTextFile.substring(fullQuestion.length()+4);					//resets the big string of the text file as the text file minus the string that was just read
+					QuizQs[x1] = fullQuestion;														//adds question to a value on the array
 				}
 				//System.out.print(fullQuestion);					//setting the text to what is in the tutorial.txt file
 			}
-			public void setVariables()
-			{
+			public void setVariables()								//this method is only fully excecuted if the random number generated is the lood integer value
+			{														/*when the random integer value has arrived then it separates the text file into choices ABCD to 
+																		to set the text to the radiobuttons*/
 
 
 				for (x3 = 0; x3<29 ; x3++)
@@ -617,7 +609,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					{
 						qNumber = fullQuestion2.substring((fullQuestion2.indexOf(">") +1), (fullQuestion2.indexOf("<")));
 						fullQuestion2 = fullQuestion2.substring(qNumber.length() + 3); 
-						//System.out.println(qNumber);
+						
 						
 						choiceA = fullQuestion2.substring(fullQuestion2.indexOf("a)")+2, fullQuestion2.indexOf("b)"));
 						fullQuestion2 = fullQuestion2.substring(choiceA.length()+2);
@@ -633,10 +625,9 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 						choiceD = fullQuestion2.substring(fullQuestion2.indexOf("d)")+2, fullQuestion2.indexOf("---"));
 						fullQuestion2 = fullQuestion2.substring(choiceD.length()+4);//choiceB = fullQuestion.substring(beginIndex, endIndex)
 					
-						//System.out.print(choiceA);
-
-						if (choiceA.indexOf("!") == 0)
-						{
+							
+						if (choiceA.indexOf("!") == 0) 	//this if else block is to determine which one of the answers is correct, in the text file the correct answer has an ! in the front
+						{								// boolean for each answer choice is set as true w respective correct answers
 						System.out.print(choiceA);
 						ca1 = true;
 						choiceA = choiceA.substring(1);
@@ -688,21 +679,14 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			}
 			public void actionPerformed(ActionEvent e){
 				String command = e.getActionCommand();
-				if(command.equals("Submit"))
+				if(command.equals("Submit"))			//tells the computer to go to changeQuestions when submit is pressed
 				{
 					sp = true;
 					changeQuestions();
-					/*randomQuestion = (int)((Math.random()*13)+1);		//randomizing an integer when the user clicks submit in the question
-					System.out.print(randomQuestion);
-					getTextFile();
-					getText();
-					setVariables();
-					repaint();
-					displayRadioButtons();*/
 
 				}
-				
-				if(a1.isSelected())
+					
+				if(a1.isSelected())					//if else block for if a radiobutton is selected, respecitve booleans are set as true and others are set as false
 				{
 					a1select = true;
 					a2select = false;
@@ -737,17 +721,13 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				}
 					
 			}
-			public void changeQuestions()
+			public void changeQuestions()					//method that changes the text of the radiobuttons if the user answers correctly
 			{
 
 				System.out.println();
 				if(sp == true &&  a1select == true && ca1 == true)
 				{
-					getTextFile();
-					getText();
-					setVariables();
-					repaint();
-					displayRadioButtons();
+
 					sp = false;
 					a1select = false;
 					ca1 = false;
@@ -755,11 +735,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				}
 				else if(sp == true &&  a2select == true && ca2 == true)
 				{
-					getTextFile();
-					getText();
-					setVariables();
-					repaint();
-					displayRadioButtons();
+
 					correct = true;
 					sp = false;
 					a2select = false;
@@ -767,11 +743,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				}
 				else if(sp == true &&  a3select == true && ca3 == true)
 				{
-					getTextFile();
-					getText();
-					setVariables();
-					repaint();
-					displayRadioButtons();
+
 					correct = true;
 					sp = false;
 					a3select = false;
@@ -779,11 +751,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				}
 				else if(sp == true &&  a4select == true && ca4 == true)
 				{
-					getTextFile();
-					getText();
-					setVariables();
-					repaint();
-					displayRadioButtons();
+
 					correct = true;
 					sp = false;
 					a4select = false;
@@ -797,6 +765,12 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				
 				if (correct == true)
 				{
+					getTextFile();
+					getText();
+					setVariables();
+					repaint();
+					displayRadioButtons();
+					
 					System.out.println("correct");
 				}
 				else if (wrong == true)
