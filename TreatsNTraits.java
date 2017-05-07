@@ -344,6 +344,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		public ChooseDogPanel(TreatsNTraitsPanel tp)
 		{
 			setBackground(mainBlue);
+			repaint();
 			tntPanel2 = tp;
 			
 			setLayout(null);//set layout null
@@ -459,7 +460,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 		{
 
-			private String inFileName, line, fullQuestion, fullTextFile, question,qNumber, choiceA, choiceB, choiceC, choiceD, fullQuestion2;
+			private String inFileName, line, fullQuestion, fullTextFile,qNumber, choiceA, choiceB, choiceC, choiceD, fullQuestion2;
 			private Scanner input;	
 			private String[]QuizQs;
 			private int randomQuestion,x1,x2, x3;
@@ -467,20 +468,31 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			private JButton submit;
 			private ButtonGroup answers;
 			private JRadioButton a1, a2, a3, a4;
-			private Font f, smallf;
+			private JTextArea question;
+			private Font f, smallf, mediumf;
 
 			public Quiz()
 			{	
 				f = new Font ("URW Gothic L", Font.PLAIN, 25);
+				mediumf = new Font ("URW Gothic L", Font.PLAIN, 20);
 				smallf = new Font ("URW Gothic L", Font.PLAIN, 15);
 				setLayout(null);
 				setBackground(mainBlue);
 				
+				question = new JTextArea();
+				question.setLineWrap(true);
+				question.setSize(530, 70);
+				question.setLocation(30, 50);
+				question.setFont(smallf);
+				question.setBackground(mainBlue);
+				
+				add(question);
+				
 				submit = new JButton("Submit");
-				submit.setFont(f);
+				submit.setFont(mediumf);
 				submit.setText("Submit");
-				submit.setSize(200, 70);
-				submit.setLocation(350,490);
+				submit.setSize(100, 50);
+				submit.setLocation(475,500);
 				submit.addActionListener(this);
 				
 				add(submit);
@@ -555,7 +567,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				getTextFile();
 				getText();
 				setVariables();
-				repaint();
+				setQuestion();
 				displayRadioButtons();
 				//actionPerformed();
 		
@@ -659,17 +671,18 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					
 				}
 			}
-			public void paintComponent(Graphics g)
+			public void setQuestion()
 			{
-				
-				g.setFont(smallf);
-				
-				g.drawString(qNumber,30,100);
+				question.setText(qNumber);
 				
 			}
 			public void displayRadioButtons()
 			{
 				a1.setFont(smallf);
+				a2.setFont(smallf);
+				a3.setFont(smallf);
+				a4.setFont(smallf);
+				
 				a1.setText(choiceA);
 				a2.setText(choiceB);
 				a3.setText(choiceC);
@@ -768,7 +781,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					getTextFile();
 					getText();
 					setVariables();
-					repaint();
+					setQuestion();
 					displayRadioButtons();
 					
 					System.out.println("correct");
@@ -796,71 +809,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		
 	}
 	}
-	//class UnlockTraitsPanel extends JPanel implements ActionListener
-	//}//CLOSING THE BASE PANEL
-	/*class TutorialPanel1 extends JPanel implements AdjustmentListener	//class tutorial panel extends Jpane
-//{
-	private Scanner input;											//declare field variables
-	private String inFileName;
-	private JTextArea textArea1;									//declaring the text area for the tutorial
-	private String line, fullTutorial;
-
-	public TutorialPanel1()											//constructor
-//set layout null
-	{
-		textArea1 = new JTextArea();
-		add(textArea1);												//add text area to the panel 
-
-		inFileName = "Tutorial.txt";									//add both textAreas to panel
-		setLayout(null);
-		setVisible(true);
-
-		line = "";
-		fullTutorial = "";
-	}
-	public void importTextFiles()										//method for try catch blocks 
-	{																
-	File inFile = new File(inFileName);								
-	try
-		{
-		input = new Scanner(inFile);
-
-		}
-	catch (FileNotFoundException e)
-		{
-		System.out.println("Error. Cannot Find/Open File " + inFileName );
-		System.exit(1);
-
-		}
-	}
-	public void getWords()										//method from reading input from the tutorial.txt file so we c an print the stuff from the tutorial.txt file on to the JTextArea
-	{
-		while(input.hasNext())
-		{
-		line = input.nextLine();
-		input.nextLine();
-
-		fullTutorial = fullTutorial + "\n" + line;
-		}
-
-	}
-	public void adjustmentValueChanged(AdjustmentEvent e)
-
-	{
-	}
-}*/
-//CLOSING BASE PANEL												//set size and locations of components
-//start method
-//if/else for if the start method is pressed
-//goes to tutorial if button is pressed
-
-
-
-
-//declare both textAreas
-
-//set size and locations of components
-
+	
 
 
 //public class quizPanel
