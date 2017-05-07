@@ -2,7 +2,7 @@
 /* Neha Jagathesan & Nikita Shetty
 5/5/17
 TreatsNTraits.java
- game*/ 
+ game*/
 
 import java.awt.*;
 
@@ -13,9 +13,9 @@ import java.util.Scanner;
 import java.awt.event.*;
 //github.com - sharing code
 
-/* Parts of game 
+/* Parts of game
  * 1. writing text files for the how to and background info - making back buttons to return to main panel after tutorial is done
- * 2. drawing the sample dog - outline to fill in varying traits 
+ * 2. drawing the sample dog - outline to fill in varying traits
  * 3. talk to mentor about which breed of dog to focus on/ should we focus on one breed
  * 4. creating all the panels - deciding how many are needed
  * 5. researching different traits on dog
@@ -34,7 +34,7 @@ import java.awt.event.*;
 //instantiate class
 //call run method
 public class TreatsNTraits
-{	
+{
 	//constructor
 	//instantiate field variables
 
@@ -58,12 +58,12 @@ public class TreatsNTraits
 	public void runIt()
 	{
 		JFrame frame = new JFrame("Treats N' Traits");
-		frame.setSize(1200, 600);				
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		frame.setSize(1200, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(10,10);
 		frame.setResizable(false);
 
-		TreatsNTraitsPanel tntPanel = new TreatsNTraitsPanel(); 		
+		TreatsNTraitsPanel tntPanel = new TreatsNTraitsPanel();
 		frame.add(tntPanel);
 
 		frame.setVisible(true);
@@ -73,17 +73,17 @@ public class TreatsNTraits
 	}
 }
 class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class with ActionListener  /////////////////
-// 1.  
+// 1.
 { ///////OPEN CLASS PANEL !!!!!!!!!!!!!!!!!!!
-	
-	
+
+
 	private CardLayout cards;
-	
+
 	private StartPanel startP;
 	private TutorialPanel1 tutorP1;
 	private ChooseDogPanel cdp;
 	private UnlockTraitsPanel utp;
-	
+
 	Color mainBlue;
 
 	public TreatsNTraitsPanel()////////////// write constructor
@@ -93,7 +93,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 		cards = new CardLayout();
 		setLayout(cards);
-		
+
 
 		startP = new StartPanel(this);
 		add(startP, "Start");
@@ -102,11 +102,11 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		tutorP1= new TutorialPanel1(this);
 		add(tutorP1, "Complete Dominance");
 		tutorP1.setBackground(mainBlue);
-		
+
 		cdp = new ChooseDogPanel(this);
 		add(cdp, "Choose Your Dog");
 		cdp.setBackground(mainBlue);
-		
+
 		utp = new UnlockTraitsPanel(this);
 		add(utp, "Unlock Traits");
 		utp.setBackground(mainBlue);
@@ -126,11 +126,11 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 		private String startImageName;
 		//declare field variables
 		public StartPanel(TreatsNTraitsPanel tp)
-		
+
 		{	//constructor
-			Font f = new Font ("URW Gothic L", Font.PLAIN, 35);	
+			Font f = new Font ("URW Gothic L", Font.PLAIN, 35);
 			tntPanel2 = tp;
-			startImageName = "/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/src/startpanel2.png";		//NEHAS LAPTOP IMAGE
+			startImageName = "/Users/nikit/Desktop/TreatsNTraits/startpanel.png";		//NEHAS LAPTOP IMAGE
 			//startImageName = "/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/startPanel2";
 			l1 = false;
 			l2 = false;
@@ -138,20 +138,20 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 
 			setLayout(null);//set layout null
 
-			level1 = new JButton("Level 1");//declare both buttons
-			level2 = new JButton("Level 2");
-			level3 = new JButton("Level 3");
+			level1 = new JButton(" ");//declare both buttons
+			level2 = new JButton(" ");
+			level3 = new JButton(" ");
 
 			level1.addActionListener(this);
 			level2.addActionListener(this);
 			level3.addActionListener(this);
 
 			level1.setSize(500,80);			//add size and location to all buttons
-			level1.setLocation(350,300);
-			level1.setOpaque(false);
+			level1.setLocation(100,300);
+	/*		level1.setOpaque(false);
             level1.setBorderPainted(false);
             level1.setContentAreaFilled(false);
-            level1.setFont(f);
+            level1.setFont(f);*/
 
 			level2.setSize(500,80);
 			level2.setLocation(350,390);
@@ -166,16 +166,16 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
             level3.setBorderPainted(false);
             level3.setContentAreaFilled(false);
 			level3.setFont(f);
-			
+
 			getMyImage();
 			repaint();
-			
+
 			add(level1);
 			add(level2);
 			add(level3);
 			//add both buttons to panel
 		}
-		public void getMyImage()	
+		public void getMyImage()
 		{
 			try
 			{
@@ -191,29 +191,29 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 		{
 
 				g.drawImage(start, 10, 10 , 1200, 600, this);
-	
-					
+
+
 		}
 
 		public void actionPerformed(ActionEvent e)
 		{
-			String command = e.getActionCommand();					//setting local vairable to command recieved from button
-			if(command.equals("Level 1"))							//setting booleans to true if each button is selected
+
+			if(e.getSource() == level1)							//setting booleans to true if each button is selected
 			{
 				getCards();
 				l1 = true;											//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Complete Dominance");
 			}
-			else if(command.equals("Level 2"))
+			else if(e.getSource() == level2)
 			{
 				l2 = true;
 			}
-			else if(command.equals("Level 3"))
+			else if(e.getSource() == level3)
 			{
 				l3 = true;
 			}
 		}
-	}	
+	}
 	class TutorialPanel1 extends JPanel implements AdjustmentListener, ActionListener	//class tutorial panel extends Jpane
 	{
 		private TreatsNTraitsPanel tntPanel2;
@@ -228,16 +228,16 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 		public TutorialPanel1(TreatsNTraitsPanel tp)											//constructor
 		{
 			tntPanel2 = tp;
-			
+
 			setLayout(null);
 			setVisible(true);
 
 			setBackground(Color.PINK);
 			stuff= "";
-			
+
 			Font f = new Font ("URW Gothic L", Font.PLAIN, 20);		//creating a new font for the full game
 			Color textAreaShade = new Color(153,153,255);		//creating a color to make the textArea
-			
+
 			backgroundInfo= new TextArea(stuff,10,100);
 			add(backgroundInfo);
 
@@ -246,7 +246,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 			backgroundInfo.setEditable(false);
 			backgroundInfo.setFont(f);
 			backgroundInfo.setBackground(textAreaShade);
-			
+
 			howtoPlay= new TextArea(stuff,10,100);
 			add(howtoPlay);
 
@@ -255,7 +255,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 			howtoPlay.setEditable(false);
 			howtoPlay.setFont(f);
 			howtoPlay.setBackground(textAreaShade);
-			
+
 			backButton= new JButton("Back");					//setting variables to the buttons
 			backButton.addActionListener(this);
 			add(backButton);
@@ -265,7 +265,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 			backButton.setFont(f);
 			backButton.setText("Back");
 			backButton.setBackground(textAreaShade);
-			
+
 			nextButton= new JButton("Next");
 			nextButton.addActionListener(this);
 			add(nextButton);
@@ -286,8 +286,8 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 
 		}
 		public void importTextFiles()										//method for try catch blocks to find the tutorial.txt text file
-		{																
-			File inFile = new File(inFileName);								
+		{
+			File inFile = new File(inFileName);
 			try
 			{
 				input = new Scanner(inFile);
@@ -305,7 +305,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 			while(input.hasNext())
 			{
 				line = input.nextLine();
-				
+
 				fullTutorial = fullTutorial + "\n" + line;			//creating a string to add to the textArea
 			}
 			backgroundInfo.setText(fullTutorial);					//setting the text to what is in the tutorial.txt file
@@ -322,15 +322,15 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				getCards();										//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Start");
 			}
-			else if(command.equals("Next"))							
+			else if(command.equals("Next"))
 			{
 				getCards();										//calling get cards in order to have access to all cards in panels
 				tntPanel2.getCards().show(tntPanel2, "Choose Your Dog");	//show the next card if the user clicks on a certain button
 			}
-	
+
 		}
 	}
-	class ChooseDogPanel extends JPanel implements ActionListener 
+	class ChooseDogPanel extends JPanel implements ActionListener
 		{
 		private TreatsNTraitsPanel tntPanel2;
 		private JButton dogButt1, dogButt2, dogButt3;
@@ -339,19 +339,19 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 		private Font f, big;
 		//private String mysteryDogName;
 
-		
+
 		public ChooseDogPanel(TreatsNTraitsPanel tp)
 		{
 			setBackground(mainBlue);
 			tntPanel2 = tp;
-			
+
 			setLayout(null);//set layout null
-		
-			f = new Font ("URW Gothic L", Font.PLAIN, 35);	
+
+			f = new Font ("URW Gothic L", Font.PLAIN, 35);
 			big = new Font ("URW Gothic L", Font.PLAIN, 70);
 
 			//mysteryDogName = "mysterydog.png";
-			
+
 			db1 = false;
 			db2 = false;
 			db3 = false;
@@ -359,11 +359,11 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 			dogButt1 = new JButton(" ");//declare both buttons
 			dogButt2 = new JButton(" ");
 			dogButt3 = new JButton(" ");
-			
+
 			dogButt1.addActionListener(this);
 			dogButt2.addActionListener(this);
 			dogButt3.addActionListener(this);
-			
+
 			dogButt1.setSize(200,200);			//add size and location to all buttons
 			dogButt1.setLocation(150, 250);
 			dogButt1.setOpaque(false);
@@ -384,15 +384,15 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
             dogButt3.setBorderPainted(false);
             dogButt3.setContentAreaFilled(false);
 			dogButt3.setFont(f);
-			
+
 			repaint();
-			
+
 			add(dogButt1);
 			add(dogButt2);
 			add(dogButt3);
-			
+
 			//mysteryDog = new ImageIcon("mysterydog.png").getImage();
-			mysteryDog = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/src/mysterydog.png").getImage();		//LINE OF CODE FOR NEHAS LAPTOP
+			mysteryDog = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/mysterydog.png").getImage();		//LINE OF CODE FOR NEHAS LAPTOP
 		}
 
 		public void paintComponent(Graphics g)
@@ -401,18 +401,18 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				g.drawImage(mysteryDog, 150, 250 , 200, 200, this);
 				g.drawImage(mysteryDog, 490, 250 , 200, 200, this);
 				g.drawImage(mysteryDog, 840, 250 , 200, 200, this);
-				
-					
+
+
 				g.setFont(big);
 				g.drawString("Choose a dog to adopt!", 200,150);
-				
-				
-					
+
+
+
 		}
 
-		public void actionPerformed(ActionEvent e) 
+		public void actionPerformed(ActionEvent e)
 		{
-		
+
 			String command = e.getActionCommand();					//setting local vairable to command recieved from button
 			if(command.equals(" "))							//setting booleans to true if each button is selected
 			{
@@ -420,12 +420,12 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				db1 = true;											//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Unlock Traits");
 			}
-			
+
 		}
 
 	}
-		class UnlockTraitsPanel extends JPanel implements ActionListener		//this class contains two subclasses which are 2 panels on this panel 
-	{																		//users will answer questions on the left side of the panel for unlocked traits to be revealed on the right side of the panel 
+		class UnlockTraitsPanel extends JPanel implements ActionListener		//this class contains two subclasses which are 2 panels on this panel
+	{																		//users will answer questions on the left side of the panel for unlocked traits to be revealed on the right side of the panel
 		private TreatsNTraitsPanel tntPanel2;
 		private ShowTraits st;
 		private Quiz q;
@@ -434,30 +434,30 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 		{
 			tntPanel2 = tp;
 			setLayout(new GridLayout(1,2));
-			
 
-			st = new ShowTraits();											
+
+			st = new ShowTraits();
 			q = new Quiz();
-			
+
 			correct = false;
 			wrong = false;
-			
+
 			st.setBackground(Color.MAGENTA);
-			
+
 			add(q, "Quiz");
 			add(st, "Show Traits");
-			
+
 		}
-		public void actionPerformed(ActionEvent e) 
+		public void actionPerformed(ActionEvent e)
 		{
 
-		}		
+		}
 		class Quiz extends JPanel implements ActionListener
 
 		{
 
 			private String inFileName, line, fullQuestion, fullTextFile, question,qNumber, choiceA, choiceB, choiceC, choiceD, fullQuestion2;
-			private Scanner input;	
+			private Scanner input;
 			private String[]QuizQs;
 			private int randomQuestion,x1,x2, x3;
 			private boolean ca1, ca2, ca3, ca4, sp, a1select, a2select, a3select, a4select, correct, wrong;
@@ -467,7 +467,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 			private Font f, smallf;
 
 			public Quiz()
-			{	
+			{
 				f = new Font ("URW Gothic L", Font.PLAIN, 25);
 				smallf = new Font ("URW Gothic L", Font.PLAIN, 15);
 				setLayout(null);
@@ -477,16 +477,16 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				submit.setSize(200, 70);
 				submit.setLocation(350,490);
 				submit.addActionListener(this);
-				
+
 				add(submit);
-				
+
 				answers = new ButtonGroup();			//adding a buttongroup
 				a1 = new JRadioButton();
 				a2 = new JRadioButton();
 				a3 = new JRadioButton();
 				a4 = new JRadioButton();
-				
-			
+
+
 				answers.add(a1);						//adding buttons to a buttongroup
 				answers.add(a2);
 				answers.add(a3);
@@ -496,28 +496,28 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				a2.addActionListener(this);
 				a3.addActionListener(this);
 				a4.addActionListener(this);
-				
+
 				a1.setSize(600,40);
 				a2.setSize(600,40);
 				a3.setSize(600,40);
 				a4.setSize(600,40);
-				
+
 				a1.setLocation(10, 130);
 				a2.setLocation(10, 230);
 				a3.setLocation(10, 330);
 				a4.setLocation(10, 430);
-				
+
 				a1.setFont(smallf);
 				a2.setFont(smallf);
 				a3.setFont(smallf);
 				a4.setFont(smallf);
-				
-				
+
+
 				add(a1);
 				add(a2);
 				add(a3);
 				add(a4);
-				
+
 				ca1 = false;
 				ca2 = false;
 				ca3 = false;
@@ -527,18 +527,18 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				a2select = false;
 				a3select = false;
 				a4select = false;
-				
+
 				correct = false;
 				wrong = false;
-				
+
 				inFileName = "QuizQuestions.txt";
 				line = "";
 				fullQuestion = "";
 				QuizQs = new String[30];
-				
+
 				//getTextFile();
 				//getText();
-				
+
 
 				randomQuestion = (int)((Math.random()*13)+1);		//randomizing an integer when the user clicks submit in the question
 				//randomQuestion = 4;
@@ -548,11 +548,11 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				repaint();
 				displayRadioButtons();
 				//actionPerformed();
-		
+
 			}
 			public void getTextFile()
 			{
-				File inFile = new File(inFileName);								
+				File inFile = new File(inFileName);
 				try
 				{
 					input = new Scanner(inFile);
@@ -565,21 +565,21 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 
 				}
 			}
-			
+
 
 			public void getText()										//method from reading input from the tutorial.txt file so we c an print the stuff from the tutorial.txt file on to the JTextArea
-			{	
+			{
 
 				while(input.hasNext())
 				{
 					line = input.nextLine();
-					
+
 					fullTextFile = fullTextFile + "\n" + line;			//creating a string to add to the textArea
 				}
-				
+
 				for(x1=0;x1<29;x1++)
 				{
-			
+
 					fullQuestion = fullTextFile.substring(0, fullTextFile.indexOf("---")+3)	;		//creating a string to add to the textArea
 					/*if (x1 == 13)
 					{
@@ -587,8 +587,8 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 						//System.out.print(fullQuestion.length());
 						//fullTextFile = fullTextFile.substring(fullQuestion.length());
 					}*/
-					
-					fullTextFile = fullTextFile.substring(fullQuestion.length()+4);				
+
+					fullTextFile = fullTextFile.substring(fullQuestion.length()+4);
 					QuizQs[x1] = fullQuestion;
 				}
 				//System.out.print(fullQuestion);					//setting the text to what is in the tutorial.txt file
@@ -600,27 +600,27 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				for (x3 = 0; x3<29 ; x3++)
 				{
 					fullQuestion2 = QuizQs[x3];
-					
+
 					if (x3 == randomQuestion)
 					{
 						qNumber = fullQuestion2.substring((fullQuestion2.indexOf(">") +1), (fullQuestion2.indexOf("<")));
-						fullQuestion2 = fullQuestion2.substring(qNumber.length() + 3); 
+						fullQuestion2 = fullQuestion2.substring(qNumber.length() + 3);
 						//System.out.println(qNumber);
-						
+
 						choiceA = fullQuestion2.substring(fullQuestion2.indexOf("a)")+2, fullQuestion2.indexOf("b)"));
 						fullQuestion2 = fullQuestion2.substring(choiceA.length()+2);
-						
-						
+
+
 						choiceB = fullQuestion2.substring(fullQuestion2.indexOf("b)")+2, fullQuestion2.indexOf("c)"));
 						fullQuestion2 = fullQuestion2.substring(choiceB.length()+2);//choiceB = fullQuestion.substring(beginIndex, endIndex)
 
 						choiceC = fullQuestion2.substring(fullQuestion2.indexOf("c)")+2, fullQuestion2.indexOf("d)"));
 						fullQuestion2 = fullQuestion2.substring(choiceC.length() +2);//choiceB = fullQuestion2.substring(beginIndex, endIndex)
 
-						
+
 						choiceD = fullQuestion2.substring(fullQuestion2.indexOf("d)")+2, fullQuestion2.indexOf("---"));
 						fullQuestion2 = fullQuestion2.substring(choiceD.length()+4);//choiceB = fullQuestion.substring(beginIndex, endIndex)
-					
+
 						//System.out.print(choiceA);
 
 						if (choiceA.indexOf("!") == 0)
@@ -629,38 +629,38 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 						ca1 = true;
 						choiceA = choiceA.substring(1);
 						}
-						
+
 						else if (choiceB.indexOf("!") == 0)
 						{
 						System.out.print(choiceB);
 						ca2 = true;
 						choiceB = choiceB.substring(1);
 						}
-						
+
 						else if (choiceC.indexOf("!") == 0)
 						{
 						System.out.print(choiceC);
 						ca3 = true;
 						choiceC = choiceC.substring(1);
 						}
-						
+
 						else if (choiceD.indexOf("!") == 0)
 						{
 						System.out.print(choiceD);
 						ca4 = true;
 						choiceD = choiceD.substring(1);
-						
+
 						}
 
 					}
-					
+
 				}
 			}
 			public void paintComponent(Graphics g)
 			{
 				g.setFont(smallf);
 				g.drawString(qNumber, 30,100);
-				
+
 			}
 			public void displayRadioButtons()
 			{
@@ -669,8 +669,8 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 				a2.setText(choiceB);
 				a3.setText(choiceC);
 				a4.setText(choiceD);
-				
-				
+
+
 			}
 			public void actionPerformed(ActionEvent e){
 				String command = e.getActionCommand();
@@ -687,7 +687,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 					displayRadioButtons();*/
 
 				}
-				
+
 				if(a1.isSelected())
 				{
 					a1select = true;
@@ -695,8 +695,8 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 					a3select = false;
 					a4select = false;
 				}
-					
-				
+
+
 				else if(a2.isSelected())
 				{
 					a2select = true;
@@ -704,7 +704,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 					a3select = false;
 					a4select = false;
 				}
-		
+
 				else if(a3.isSelected())
 				{
 					a3select = true;
@@ -721,7 +721,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 					a3select = false;
 
 				}
-					
+
 			}
 			public void changeQuestions()
 			{
@@ -775,23 +775,23 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 					a4select = false;
 					ca4 = false;
 				}
-	
-					
-			
+
+
+
 			}
-			
-		
-	
+
+
+
 		}
 		class ShowTraits extends JPanel	implements ActionListener									//panel that reveals what the traits are using draw strings
 		{
-			
+
 			public ShowTraits(){
 
-			}	
+			}
 			public void actionPerformed(ActionEvent e){}			//
 		}
-		
+
 	}
 	}
 	//class UnlockTraitsPanel extends JPanel implements ActionListener
@@ -807,7 +807,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 //set layout null
 	{
 		textArea1 = new JTextArea();
-		add(textArea1);												//add text area to the panel 
+		add(textArea1);												//add text area to the panel
 
 		inFileName = "Tutorial.txt";									//add both textAreas to panel
 		setLayout(null);
@@ -816,9 +816,9 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 		line = "";
 		fullTutorial = "";
 	}
-	public void importTextFiles()										//method for try catch blocks 
-	{																
-	File inFile = new File(inFileName);								
+	public void importTextFiles()										//method for try catch blocks
+	{
+	File inFile = new File(inFileName);
 	try
 		{
 		input = new Scanner(inFile);
@@ -878,7 +878,7 @@ class StartPanel extends JPanel implements ActionListener //class start panel ex
 //Math.random to randomize the questions
 //assign a number to each question
 //if/else to read from text file according to number from math.rand
-//if/else block when the user answers a question 
+//if/else block when the user answers a question
 //add three treats if correct answer is selected
 //calls repaint() if incorrect
 //if/else blocks for what to do when user clicks next
