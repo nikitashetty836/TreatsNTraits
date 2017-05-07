@@ -1,0 +1,264 @@
+1>An allele is ____________<
+
+a)one of the bases in DNA
+b)an alternate form of a gene   
+c)another term for offspring
+d)present only in males and is responsible for sex determination
+---
+
+
+2>What is the study of heredity?<
+
+a)Hereditology
+b)DNA
+c)Genetics   
+d)Biology
+---
+
+3>What are genes?<
+
+a)A double helix
+b)Food
+c)A code of DNA   
+d)The study of genetics
+---
+
+4>What does DNA stand for?<
+
+a)Dominant Nuclear Acid
+b)Deoxyribonucleic Acid   
+c)Daily Nursing Applejuice
+d)Denominator of Numeroud Alleles
+---
+
+5>A phenotype is ____________<
+
+a)Physical appearance   
+b)A made-up word for gene
+c)Not a word
+d)Two alleles
+---
+
+6>Alleles determine ____________<
+
+a)Eye color
+b)Skin color
+c)Nose shape
+d)All of the above   
+---
+
+7>Alleles are ___________<
+
+a)Dominant
+b)Acid
+c)Recessive
+d)Choice 1 and 3   
+---
+
+8>Which term means "same alleles"?<
+
+a)Heterozygous
+b)Hybrid
+c)Homozygous   
+d)There is no term
+---
+
+9>Homozygous dominants are represented with a ____________<
+
+a)Capital letter   
+b)Roman numeral
+c)Hair color
+d)Lower case letter
+---
+
+10>Which word is a synonym to homozygous dominant?<
+
+a)Hybrid
+b)Regular
+c)Purebred   
+d)Irregular
+---
+
+11>What is heredity?<
+
+a)The passing of genes from parents to offspring   
+b)The study of genes
+c)Genetics
+d)Plants scattering pollen
+---
+
+12>Which word is a synonym to homozygous recessive?<
+
+a)Hybrid
+b)Regular
+c)Purebred     
+d)Irregular
+---
+
+13>Which word is a synonym to heterozygous?<
+
+a)Hybrid   
+b)Regular
+c)Purebred
+d)Irregular
+---
+
+14>Which of the following represents the possible genotype(s)
+resulting from a cross between two individuals that are 
+heterozygous (Bb)?<
+
+a)BB and Bb
+b)BB, Bb and bb   
+c)BB only
+d)Bb only
+---
+
+15>Two Martians fall in love and get married. One Martian is 
+homozygous for red eyes (RR), while the other is heterozygous (Rr).
+The recessive eye colour is purple. What is the probability that 
+they will have a child with purple eyes?<
+
+a)1/1
+b)0   
+c)1/4
+d)3/4
+---
+
+16>A woman and her husband both show the normal phenotype 
+for skin pigmentation. However, both had one parent who 
+was an albino. Albinism is an autosomal recessive trait. 
+What is the probability that their first child will have 
+albinism?<
+
+a)0%
+b)25%   
+c)50%
+d)75%
+---
+
+17>A individual who has two of the same allele is said to be __________<
+
+a)Homozygous   
+b)Heteromologous
+c)Homologous
+d)Heterozygous
+---
+
+18>The genes in a population comprise its __________<
+
+a)Gene allocation
+b)Gene flow
+c)Gene pool   
+d)Genotype
+---
+
+19>Who is the father of modern genetics?<
+
+a)Gregor Mendel   
+b)Evan Cassillas
+c)John Mendel
+d)Watson and Krick
+---
+
+20>What is the type of square predicts the possible genotypes for
+offspring?<
+
+a)Mendel
+b)Watson
+c)Johnson
+d)Punnett   
+---
+
+21>A heterozygous tall pea plant is crossed with a short plant. 
+Tall (T) is dominant to short (t) plants. What is the probability that 
+the offspring plant will be tall?<
+
+a)75%
+b)25%
+c)50%   
+d)100%
+---
+
+22>Brown (B) is dominant over white (b) in foxes. A homozygous 
+brown fox is crossed with a white fox. What is the probability that the 
+fox offspring will be white?<
+
+a)25%
+b)0%
+c)50%   
+d)100%
+---
+
+23>A cross of a white chick (WW) with a black chick (BB) produces all 
+speckled offspring (WB). This type of inheritance is known as _______<
+
+a)Incomplete dominance
+b)Polygenic inheritance
+c)Codominance   
+d)Multiple alleles
+---
+
+24>What plants have homozygous genotypes?<
+
+a)TT only
+b)Tt
+c)Both TT and tt
+d)Tt only
+---
+
+25>If you cross a red plant with a white plant and the offspring 
+is pink, what is that called?<
+
+a)Incomplete dominance   
+b)Polygenic inheritance
+c)Codominance
+d)Multiple alleles
+---
+
+26>In cats, yellow fur is dominant over white fur. A heterozygous 
+cat is mated with a white cat. The genotypes of offspring that could 
+occur are _____<
+
+a)YY and Yy
+b)Yy
+c)Yy and yy   
+d)YY, Yy, and yy
+---
+
+27>A change in a gene is called ________<
+
+a)Genetic engineering
+b)A mutation
+c)Genetics
+d)A pedigree
+---
+
+28>In chinchillas, grey fur (G) is dominant over white fur (g). What 
+is the percentage of offspring that will have grey fur if a 
+heterozygous dominant chinchilla is crossed with a homozygous 
+dominant chinchilla?<
+
+a)0%
+b)50%
+c)75%
+d)100%   
+---
+
+29>If blue eye colour (b) is recessive to brown eyes (B), what would 
+be the genotype of a brown eyed person?<
+
+a)Bb or BB   
+b)Bb or bb
+c)Only BB
+d)Only bb
+---
+
+30>If blue eye colour (b) is recessive to brown eyes (B) and two 
+heterozygous parents have a child, what is the chance that the 
+childs phenotype will be blue eyed?<
+
+a)100%
+b)75%
+c)50%
+d)25%   
+---

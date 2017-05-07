@@ -1,0 +1,17 @@
+Hello! Welcome to the tutorial for Level 1 of Treats N' Traits.
+In this level, you will use your knowledge of complete dominance to find your dogs parent!
+
+Scroll to learn what you will need to get through this level!
+
+Basic terms to know for this game
+-Offspring: possible children that can be created from the parent
+
+-Traits: characteristcs that can be passed from parent to offspring
+		Examples of heritable: Eye color, hair color
+		Non examples: personality, likes, dislikes
+		
+-Genes: small section of a DNA that codes for a certain protein
+		instructions for proteins which help determine your traits
+		genes are NOT the physical 
+		
+-Allele: different forms of a certain gene (i.e. different alleles = different traits)
