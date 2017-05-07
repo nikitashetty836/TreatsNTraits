@@ -11,7 +11,7 @@ d)present only in males and is responsible for sex determination
 
 a)Hereditology
 b)DNA
-c)Genetics   
+c)!Genetics   
 d)Biology
 ---
 
@@ -19,21 +19,21 @@ d)Biology
 
 a)A double helix
 b)Food
-c)A code of DNA   
+c)!A code of DNA   
 d)The study of genetics
 ---
 
 4>What does DNA stand for?<
 
 a)Dominant Nuclear Acid
-b)Deoxyribonucleic Acid   
+b)!Deoxyribonucleic Acid   
 c)Daily Nursing Applejuice
 d)Denominator of Numeroud Alleles
 ---
 
 5>A phenotype is ____________<
 
-a)Physical appearance   
+a)!Physical appearance   
 b)A made-up word for gene
 c)Not a word
 d)Two alleles
@@ -44,28 +44,29 @@ d)Two alleles
 a)Eye color
 b)Skin color
 c)Nose shape
-d)All of the above   
+d)!All of the above   
 ---
 
-7>Alleles are ___________<
+7>Alleles are ___________<		
 
 a)Dominant
 b)Acid
 c)Recessive
-d)Choice 1 and 3   
+d)!Choice 1 and 3   
 ---
 
 8>Which term means "same alleles"?<
 
 a)Heterozygous
 b)Hybrid
-c)Homozygous   
+c)!Homozygous   
 d)There is no term
 ---
 
-9>Homozygous dominants are represented with a ____________<
+9>Homozygous dominants are represented 
+with a ____________<
 
-a)Capital letter   
+a)!Capital letter   
 b)Roman numeral
 c)Hair color
 d)Lower case letter
@@ -75,13 +76,13 @@ d)Lower case letter
 
 a)Hybrid
 b)Regular
-c)Purebred   
+c)!Purebred   
 d)Irregular
 ---
 
 11>What is heredity?<
 
-a)The passing of genes from parents to offspring   
+a)!The passing of genes from parents to offspring   
 b)The study of genes
 c)Genetics
 d)Plants scattering pollen
@@ -91,13 +92,13 @@ d)Plants scattering pollen
 
 a)Hybrid
 b)Regular
-c)Purebred     
+c)!Purebred   
 d)Irregular
 ---
 
 13>Which word is a synonym to heterozygous?<
 
-a)Hybrid   
+a)!Hybrid   
 b)Regular
 c)Purebred
 d)Irregular
@@ -108,7 +109,7 @@ resulting from a cross between two individuals that are
 heterozygous (Bb)?<
 
 a)BB and Bb
-b)BB, Bb and bb   
+b)!BB, Bb and bb   
 c)BB only
 d)Bb only
 ---
@@ -119,7 +120,7 @@ The recessive eye colour is purple. What is the probability that
 they will have a child with purple eyes?<
 
 a)1/1
-b)0   
+b)!0   
 c)1/4
 d)3/4
 ---
@@ -131,14 +132,14 @@ What is the probability that their first child will have
 albinism?<
 
 a)0%
-b)25%   
+b)!25%   
 c)50%
 d)75%
 ---
 
 17>A individual who has two of the same allele is said to be __________<
 
-a)Homozygous   
+a)!Homozygous   
 b)Heteromologous
 c)Homologous
 d)Heterozygous
@@ -148,13 +149,13 @@ d)Heterozygous
 
 a)Gene allocation
 b)Gene flow
-c)Gene pool   
+c)!Gene pool   
 d)Genotype
 ---
 
 19>Who is the father of modern genetics?<
 
-a)Gregor Mendel   
+a)!Gregor Mendel   
 b)Evan Cassillas
 c)John Mendel
 d)Watson and Krick
@@ -166,7 +167,7 @@ offspring?<
 a)Mendel
 b)Watson
 c)Johnson
-d)Punnett   
+d)!Punnett   
 ---
 
 21>A heterozygous tall pea plant is crossed with a short plant. 
@@ -175,7 +176,7 @@ the offspring plant will be tall?<
 
 a)75%
 b)25%
-c)50%   
+c)!50%   
 d)100%
 ---
 
@@ -185,7 +186,7 @@ fox offspring will be white?<
 
 a)25%
 b)0%
-c)50%   
+c)!50%   
 d)100%
 ---
 
@@ -194,7 +195,7 @@ speckled offspring (WB). This type of inheritance is known as _______<
 
 a)Incomplete dominance
 b)Polygenic inheritance
-c)Codominance   
+c)!Codominance   
 d)Multiple alleles
 ---
 
@@ -202,14 +203,14 @@ d)Multiple alleles
 
 a)TT only
 b)Tt
-c)Both TT and tt
+c)!Both TT and tt   
 d)Tt only
 ---
 
 25>If you cross a red plant with a white plant and the offspring 
 is pink, what is that called?<
 
-a)Incomplete dominance   
+a)!Incomplete dominance   
 b)Polygenic inheritance
 c)Codominance
 d)Multiple alleles
@@ -221,14 +222,14 @@ occur are _____<
 
 a)YY and Yy
 b)Yy
-c)Yy and yy   
+c)!Yy and yy   
 d)YY, Yy, and yy
 ---
 
 27>A change in a gene is called ________<
 
 a)Genetic engineering
-b)A mutation
+b)!A mutation   
 c)Genetics
 d)A pedigree
 ---
@@ -241,13 +242,13 @@ dominant chinchilla?<
 a)0%
 b)50%
 c)75%
-d)100%   
+d)!100%   
 ---
 
 29>If blue eye colour (b) is recessive to brown eyes (B), what would 
 be the genotype of a brown eyed person?<
 
-a)Bb or BB   
+a)!Bb or BB   
 b)Bb or bb
 c)Only BB
 d)Only bb
@@ -260,5 +261,9 @@ childs phenotype will be blue eyed?<
 a)100%
 b)75%
 c)50%
-d)25%   
+d)!25%   
 ---
+
+
+
+
