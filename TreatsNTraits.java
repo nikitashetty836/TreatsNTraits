@@ -82,7 +82,9 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 	private StartPanel startP;
 	private TutorialPanel1 tutorP1;
 	private ChooseDogPanel cdp;
+	private InstructionsPanel ip;
 	private UnlockTraitsPanel utp;
+	private ShowDog sd;
 	
 	Color mainBlue;
 
@@ -107,9 +109,17 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		add(cdp, "Choose Your Dog");
 		cdp.setBackground(mainBlue);
 		
+		ip = new InstructionsPanel(this);
+		add(ip, "Instructions");
+		ip.setBackground(mainBlue);
+		
 		utp = new UnlockTraitsPanel(this);
 		add(utp, "Unlock Traits");
 		utp.setBackground(mainBlue);
+		
+		sd = new ShowDog(this);
+		add(sd, "Show Dog");
+		sd.setBackground(mainBlue);
 
 
 	}
@@ -416,24 +426,68 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		public void actionPerformed(ActionEvent e) 
 		{
 		
-			String command = e.getActionCommand();					//setting local vairable to command recieved from button
-			if(command.equals(" "))							//setting booleans to true if each button is selected
+			String command = e.getActionCommand();							//setting local vairable to command recieved from button
+			if(command.equals(" "))											//setting booleans to true if each button is selected
 			{
 				getCards();
-				db1 = true;											//show the next card if the user clicks on a certain button
-				tntPanel2.getCards().show(tntPanel2, "Unlock Traits");
+				db1 = true;													//show the next card if the user clicks on a certain button
+				tntPanel2.getCards().show(tntPanel2, "Instructions");
 			}
 			
 		}
-
+		
+		
 	}
-		class UnlockTraitsPanel extends JPanel implements ActionListener		//this class contains two subclasses which are 2 panels on this panel 
+	class InstructionsPanel extends JPanel implements ActionListener
+	{
+		private TreatsNTraitsPanel tntPanel2;
+		private JButton go;
+		private JTextArea instructions;
+		private Font bigF;
+		public InstructionsPanel(TreatsNTraitsPanel tp)
+		{
+			tntPanel2 = tp;	
+			bigF = new Font ("URW Gothic L", Font.PLAIN, 50);
+			setLayout(null);
+			go = new JButton("GO");
+			go.setSize(400,150);
+			go.setLocation(350,400);
+			go.setFont(bigF);
+			go.setText("Go!");
+			go.addActionListener(this);
+			
+			instructions = new JTextArea();
+			instructions.setLineWrap(true);
+			instructions.setLocation(50, 70);
+			instructions.setSize(1100, 300);
+			instructions.setFont(bigF);
+			instructions.setBackground(mainBlue);
+			instructions.setText("Answer questions to reveal traits of your dog to help find its parents! 1 right question = 1 trait revealed. Click GO to start.");
+			
+			add(go);
+			add(instructions);
+			
+		}
+		
+		public void actionPerformed(ActionEvent e) 
+		{
+			String command = e.getActionCommand();
+			if (command.equals("Go!"))
+			{
+				tntPanel2.getCards().show(tntPanel2, "Unlock Traits");
+			}
+			
+			
+		}
+		
+	}
+		class UnlockTraitsPanel extends JPanel implements ActionListener	//this class contains two subclasses which are 2 panels on this panel 
 	{																		//users will answer questions on the left side of the panel for unlocked traits to be revealed on the right side of the panel 
 		private TreatsNTraitsPanel tntPanel2;
 		private ShowTraits st;
 		private Quiz q;
 		boolean correct, wrong;
-		public UnlockTraitsPanel(TreatsNTraitsPanel tp)						//panel on whixh traits will be written out
+		public UnlockTraitsPanel(TreatsNTraitsPanel tp)						//panel on which traits will be written out
 		{
 			tntPanel2 = tp;
 			setLayout(new GridLayout(1,2));
@@ -465,7 +519,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			private String[]QuizQs;
 			private int randomQuestion,x1,x2, x3;
 			private boolean ca1, ca2, ca3, ca4, sp, a1select, a2select, a3select, a4select, correct, wrong;
-			private JButton submit;
+			private JButton submit, next2;
 			private ButtonGroup answers;
 			private JRadioButton a1, a2, a3, a4;
 			private JTextArea question;
@@ -492,10 +546,19 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				submit.setFont(mediumf);
 				submit.setText("Submit");
 				submit.setSize(100, 50);
-				submit.setLocation(475,500);
+				submit.setLocation(300,500);
 				submit.addActionListener(this);
 				
 				add(submit);
+				
+				next2 = new JButton("Next");
+				next2.setFont(mediumf);
+				next2.setText("Next");
+				next2.setSize(100, 50);
+				next2.setLocation(400,500);
+				next2.addActionListener(this);
+				
+				add(next2);
 				
 				answers = new ButtonGroup();			//adding a buttongroup
 				a1 = new JRadioButton();
@@ -540,7 +603,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				add(a3);
 				add(a4);
 				
-				ca1 = false;								//initializing all booleams as false/ they are eventually true when the buttons are clicked
+				ca1 = false;								//initializing all booleans as false/ they are eventually true when the buttons are clicked
 				ca2 = false;
 				ca3 = false;
 				ca4 = false;
@@ -572,7 +635,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				//actionPerformed();
 		
 			}
-			public void getTextFile() 			//method is just for making sure that the textFile for the quiz questions can be found
+			public void getTextFile() 								//method is just for making sure that the textFile for the quiz questions can be found
 			{
 				File inFile = new File(inFileName);								
 				try
@@ -589,14 +652,14 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			}
 			
 
-			public void getText()										//method from reading input from the tutorial.txt file so we c an print the stuff from the tutorial.txt file on to the JTextArea
+			public void getText()									//method from reading input from the tutorial.txt file so we c an print the stuff from the tutorial.txt file on to the JTextArea
 			{	
 
 				while(input.hasNext())
 				{
 					line = input.nextLine();
 					
-					fullTextFile = fullTextFile + "\n" + line;			//creating a string to add to the textArea
+					fullTextFile = fullTextFile + "\n" + line;		//creating a string to add to the textArea
 				}
 				
 				for(x1=0;x1<29;x1++)
@@ -608,7 +671,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				}
 				//System.out.print(fullQuestion);					//setting the text to what is in the tutorial.txt file
 			}
-			public void setVariables()								//this method is only fully excecuted if the random number generated is the lood integer value
+			public void setVariables()								//this method is only fully excecuted if the random number generated is the loop integer value
 			{														/*when the random integer value has arrived then it separates the text file into choices ABCD to 
 																		to set the text to the radiobuttons*/
 
@@ -698,6 +761,11 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					changeQuestions();
 
 				}
+				else if(command.equals("Next"))
+				{
+					tntPanel2.getCards().show(tntPanel2, "Show Dog");
+				
+				}
 					
 				if(a1.isSelected())					//if else block for if a radiobutton is selected, respecitve booleans are set as true and others are set as false
 				{
@@ -732,6 +800,8 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					a3select = false;
 
 				}
+				
+				
 					
 			}
 			public void changeQuestions()					//method that changes the text of the radiobuttons if the user answers correctly
@@ -805,6 +875,15 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 			}	
 			public void actionPerformed(ActionEvent e){}			//
+		}
+		
+	}
+	class ShowDog extends JPanel
+	{
+		private TreatsNTraitsPanel tntPanel2;
+		public ShowDog(TreatsNTraitsPanel tp)
+		{
+			tntPanel2 = tp;
 		}
 		
 	}
