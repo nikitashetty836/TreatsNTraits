@@ -1,7 +1,7 @@
 1>An allele is ____________<
 
 a)one of the bases in DNA
-b)an alternate form of a gene   
+b)!an alternate form of a gene   
 c)another term for offspring
 d)present only in males and is responsible for sex determination
 ---
