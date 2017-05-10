@@ -1,0 +1,21 @@
+1)brown hair (bb) 50% chance
+2)floppy ears (FF) 25% chance
+3)brown eyes (Ee) 100% chance
+4)long hair (hh) 50% chance
+5)wet nose (WW) 50% chance
+6)short legs (ll) 100% chance 
+---
+1)brown hair (bb) 25% chance
+2)floppy ears (Ff) 50% chance
+3)blue eyes (ee) 50% chance
+4)short hair (HH) 100% chance
+5)dry nose (ww) 50% chance
+6)short legs (hh) 50% chance
+---
+1)black hair (Bb) 50% chance
+2)pointy ears (ff) 100% chance
+3)brown eyes (Ee)100% chance 
+4)short hair (HH) 25% chance
+5)dry nose (ww) 50% chance
+6)long legs (Ll) 50% chance
+---

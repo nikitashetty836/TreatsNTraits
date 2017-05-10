@@ -2,7 +2,7 @@
 /* Neha Jagathesan & Nikita Shetty
 5/5/17
 TreatsNTraits.java
- game*/
+ game*/ 
 
 import java.awt.*;
 
@@ -13,9 +13,9 @@ import java.util.Scanner;
 import java.awt.event.*;
 //github.com - sharing code
 
-/* Parts of game
+/* Parts of game 
  * 1. writing text files for the how to and background info - making back buttons to return to main panel after tutorial is done
- * 2. drawing the sample dog - outline to fill in varying traits
+ * 2. drawing the sample dog - outline to fill in varying traits 
  * 3. talk to mentor about which breed of dog to focus on/ should we focus on one breed
  * 4. creating all the panels - deciding how many are needed
  * 5. researching different traits on dog
@@ -34,7 +34,7 @@ import java.awt.event.*;
 //instantiate class
 //call run method
 public class TreatsNTraits
-{
+{	
 	//constructor
 	//instantiate field variables
 
@@ -58,12 +58,12 @@ public class TreatsNTraits
 	public void runIt()
 	{
 		JFrame frame = new JFrame("Treats N' Traits");
-		frame.setSize(1200, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(1200, 600);				
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.setLocation(10,10);
 		frame.setResizable(false);
 
-		TreatsNTraitsPanel tntPanel = new TreatsNTraitsPanel();
+		TreatsNTraitsPanel tntPanel = new TreatsNTraitsPanel(); 		
 		frame.add(tntPanel);
 
 		frame.setVisible(true);
@@ -73,12 +73,12 @@ public class TreatsNTraits
 	}
 }
 class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class with ActionListener  /////////////////
-// 1.
+// 1.  
 { ///////OPEN CLASS PANEL !!!!!!!!!!!!!!!!!!!
-
-
+	
+	
 	private CardLayout cards;
-
+	
 	private StartPanel startP;
 	private TutorialPanel1 tutorP1;
 	private ChooseDogPanel cdp;
@@ -86,16 +86,25 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 	private UnlockTraitsPanel utp;
 	private ShowDog sd;
 
+	
+	Font f, smallf, mediumf;
+	
+	private int treatCount, db;
 	Color mainBlue;
 
 	public TreatsNTraitsPanel()////////////// write constructor
 	{
+		f = new Font ("URW Gothic L", Font.PLAIN, 25);
+		mediumf = new Font ("URW Gothic L", Font.PLAIN, 20);
+		smallf = new Font ("URW Gothic L", Font.PLAIN, 15);
+		
+		treatCount = 0;
 		mainBlue = new Color(188,255,255);
 
 
 		cards = new CardLayout();
 		setLayout(cards);
-
+		
 
 		startP = new StartPanel(this);
 		add(startP, "Start");
@@ -104,19 +113,19 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		tutorP1= new TutorialPanel1(this);
 		add(tutorP1, "Complete Dominance");
 		tutorP1.setBackground(mainBlue);
-
+		
 		cdp = new ChooseDogPanel(this);
 		add(cdp, "Choose Your Dog");
 		cdp.setBackground(mainBlue);
-
+		
 		ip = new InstructionsPanel(this);
 		add(ip, "Instructions");
 		ip.setBackground(mainBlue);
-
+		
 		utp = new UnlockTraitsPanel(this);
 		add(utp, "Unlock Traits");
 		utp.setBackground(mainBlue);
-
+		
 		sd = new ShowDog(this);
 		add(sd, "Show Dog");
 		sd.setBackground(mainBlue);
@@ -140,8 +149,8 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		{	//constructor
 			Font f = new Font ("URW Gothic L", Font.PLAIN, 35);
 			tntPanel2 = tp;
-			startImageName = "/Users/nikit/Desktop/TreatsNTraits/startpanel.png";		//NEHAS LAPTOP IMAGE
-			//startImageName = "/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/src/startpanel2.png";
+			//startImageName = "/Users/nikit/Desktop/TreatsNTraits/startpanel.png";		//NEHAS LAPTOP IMAGE
+			startImageName = "/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/src/startpanel2.png";
 			l1 = false;
 			l2 = false;
 			l3 = false;
@@ -224,7 +233,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			}
 		}
 	}
-
+	
 	class TutorialPanel1 extends JPanel implements AdjustmentListener, ActionListener	//class tutorial panel extends Jpane
 	{
 		private TreatsNTraitsPanel tntPanel2;
@@ -239,16 +248,16 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		public TutorialPanel1(TreatsNTraitsPanel tp)											//constructor
 		{
 			tntPanel2 = tp;
-
+			
 			setLayout(null);
 			setVisible(true);
 
 			setBackground(Color.PINK);
 			stuff= "";
-
+			
 			Font f = new Font ("URW Gothic L", Font.PLAIN, 20);		//creating a new font for the full game
 			Color textAreaShade = new Color(153,153,255);		//creating a color to make the textArea
-
+			
 			backgroundInfo= new TextArea(stuff,10,100);
 			add(backgroundInfo);
 
@@ -257,7 +266,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			backgroundInfo.setEditable(false);
 			backgroundInfo.setFont(f);
 			backgroundInfo.setBackground(textAreaShade);
-
+			
 			howtoPlay= new TextArea(stuff,10,100);
 			add(howtoPlay);
 
@@ -266,7 +275,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			howtoPlay.setEditable(false);
 			howtoPlay.setFont(f);
 			howtoPlay.setBackground(textAreaShade);
-
+			
 			backButton= new JButton("Back");					//setting variables to the buttons
 			backButton.addActionListener(this);
 			add(backButton);
@@ -276,7 +285,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			backButton.setFont(f);
 			backButton.setText("Back");
 			backButton.setBackground(textAreaShade);
-
+			
 			nextButton= new JButton("Next");
 			nextButton.addActionListener(this);
 			add(nextButton);
@@ -297,8 +306,8 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 		}
 		public void importTextFiles()										//method for try catch blocks to find the tutorial.txt text file
-		{
-			File inFile = new File(inFileName);
+		{																
+			File inFile = new File(inFileName);								
 			try
 			{
 				input = new Scanner(inFile);
@@ -316,7 +325,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			while(input.hasNext())
 			{
 				line = input.nextLine();
-
+				
 				fullTutorial = fullTutorial + "\n" + line;			//creating a string to add to the textArea
 			}
 			backgroundInfo.setText(fullTutorial);					//setting the text to what is in the tutorial.txt file
@@ -333,50 +342,47 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				getCards();										//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Start");
 			}
-			else if(command.equals("Next"))
+			else if(command.equals("Next"))							
 			{
 				getCards();										//calling get cards in order to have access to all cards in panels
 				tntPanel2.getCards().show(tntPanel2, "Choose Your Dog");	//show the next card if the user clicks on a certain button
 			}
-
+	
 		}
 	}
-	class ChooseDogPanel extends JPanel implements ActionListener
+	class ChooseDogPanel extends JPanel implements ActionListener 
 		{
 		private TreatsNTraitsPanel tntPanel2;
 		private JButton dogButt1, dogButt2, dogButt3;
-		private boolean db1, db2, db3;
 		private Image mysteryDog;
 		private Font f, big;
 		//private String mysteryDogName;
 
-
+		
 		public ChooseDogPanel(TreatsNTraitsPanel tp)
 		{
 			setBackground(mainBlue);
 			repaint();
 			tntPanel2 = tp;
-
+			
 			setLayout(null);//set layout null
-
-
-			f = new Font ("URW Gothic L", Font.PLAIN, 35);
+			
+		
+			f = new Font ("URW Gothic L", Font.PLAIN, 35);	
 			big = new Font ("URW Gothic L", Font.PLAIN, 70);
 
 			//mysteryDogName = "mysterydog.png";
+			
 
-			db1 = false;
-			db2 = false;
-			db3 = false;
 
 			dogButt1 = new JButton(" ");//declare both buttons
-			dogButt2 = new JButton(" ");
-			dogButt3 = new JButton(" ");
-
+			dogButt2 = new JButton("  ");
+			dogButt3 = new JButton("   ");
+			
 			dogButt1.addActionListener(this);
 			dogButt2.addActionListener(this);
 			dogButt3.addActionListener(this);
-
+			
 			dogButt1.setSize(200,200);			//add size and location to all buttons
 			dogButt1.setLocation(150, 250);
 			dogButt1.setOpaque(false);
@@ -397,16 +403,15 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
             dogButt3.setBorderPainted(false);
             dogButt3.setContentAreaFilled(false);
 			dogButt3.setFont(f);
-
+			
 			repaint();
-
+			
 			add(dogButt1);
 			add(dogButt2);
 			add(dogButt3);
-
+			
 			//mysteryDog = new ImageIcon("mysterydog.png").getImage();
-			//mysteryDog = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/src/mysterydog.png").getImage();		//LINE OF CODE FOR NEHAS LAPTOP
-			mysteryDog = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/mysterydog.png").getImage();
+			mysteryDog = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/src/mysterydog.png").getImage();		//LINE OF CODE FOR NEHAS LAPTOP
 		}
 
 		public void paintComponent(Graphics g)
@@ -415,29 +420,42 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				g.drawImage(mysteryDog, 150, 250 , 200, 200, this);
 				g.drawImage(mysteryDog, 490, 250 , 200, 200, this);
 				g.drawImage(mysteryDog, 840, 250 , 200, 200, this);
-
-
+				
+					
 				g.setFont(big);
 				g.drawString("Choose a dog to adopt!", 200,150);
-
-
-
+				
+				
+					
 		}
 
-		public void actionPerformed(ActionEvent e)
+		public void actionPerformed(ActionEvent e) 
 		{
-
+		
 			String command = e.getActionCommand();							//setting local vairable to command recieved from button
 			if(command.equals(" "))											//setting booleans to true if each button is selected
 			{
 				getCards();
-				db1 = true;													//show the next card if the user clicks on a certain button
+				db = 1;													//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Instructions");
 			}
-
+			else if(command.equals("  "))											//setting booleans to true if each button is selected
+			{
+				getCards();
+				db = 2;													//show the next card if the user clicks on a certain button
+				tntPanel2.getCards().show(tntPanel2, "Instructions");
+			}
+			if(command.equals("   "))											//setting booleans to true if each button is selected
+			{
+				getCards();
+				db = 3;													//show the next card if the user clicks on a certain button
+				tntPanel2.getCards().show(tntPanel2, "Instructions");
+			}
+			
+			
 		}
-
-
+		
+		
 	}
 	class InstructionsPanel extends JPanel implements ActionListener
 	{
@@ -447,7 +465,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		private Font bigF;
 		public InstructionsPanel(TreatsNTraitsPanel tp)
 		{
-			tntPanel2 = tp;
+			tntPanel2 = tp;	
 			bigF = new Font ("URW Gothic L", Font.PLAIN, 50);
 			setLayout(null);
 			go = new JButton("GO");
@@ -456,118 +474,139 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			go.setFont(bigF);
 			go.setText("Go!");
 			go.addActionListener(this);
-
+			
 			instructions = new JTextArea();
 			instructions.setLineWrap(true);
 			instructions.setLocation(50, 70);
 			instructions.setSize(1100, 300);
 			instructions.setFont(bigF);
 			instructions.setBackground(mainBlue);
-			instructions.setText("Answer questions to reveal traits of your dog to help find its parents! 1 right question = 1 trait revealed. Click GO to start.");
-
+			instructions.setText("Answer questions to reveal traits of your dog to help find its parents! 1 right question = 1 trait revealed + 3 treats! 1 wrong question = -1 treat. The more treats you earn, the happier your dog! Click GO to start.");
+			
 			add(go);
 			add(instructions);
-
+			
 		}
-
-		public void actionPerformed(ActionEvent e)
+		
+		public void actionPerformed(ActionEvent e) 
 		{
 			String command = e.getActionCommand();
 			if (command.equals("Go!"))
 			{
 				tntPanel2.getCards().show(tntPanel2, "Unlock Traits");
 			}
-
-
+			
+			
 		}
-
+		
 	}
-		class UnlockTraitsPanel extends JPanel implements ActionListener	//this class contains two subclasses which are 2 panels on this panel
-	{																		//users will answer questions on the left side of the panel for unlocked traits to be revealed on the right side of the panel
+		class UnlockTraitsPanel extends JPanel implements ActionListener	//this class contains two subclasses which are 2 panels on this panel 
+	{																		//users will answer questions on the left side of the panel for unlocked traits to be revealed on the right side of the panel 
 		private TreatsNTraitsPanel tntPanel2;
 		private ShowTraits st;
 		private Quiz q;
 		boolean correct, wrong;
+		int correctCount;
 		public UnlockTraitsPanel(TreatsNTraitsPanel tp)						//panel on which traits will be written out
 		{
 			tntPanel2 = tp;
 			setLayout(new GridLayout(1,2));
+			
+			correctCount = 0;
+			
 
-
-			st = new ShowTraits();
+			st = new ShowTraits();											
 			q = new Quiz();
-
+			
 			correct = false;
 			wrong = false;
-
+			
 			st.setBackground(Color.MAGENTA);
-
-
+			
+			
 			add(q, "Quiz");
 			add(st, "Show Traits");
-
+			
 		}
-		public void actionPerformed(ActionEvent e)
+		public void actionPerformed(ActionEvent e) 
 		{
 
+		}
+		public void getter(){
+			st.getText();
+			st.getWords();
+			st.getTraits();
+			
 		}
 		class Quiz extends JPanel implements ActionListener
 
 		{
 
 			private String inFileName, line, fullQuestion, fullTextFile,qNumber, choiceA, choiceB, choiceC, choiceD, fullQuestion2;
-			private Scanner input;
+			private Scanner input;	
 			private String[]QuizQs;
 			private int randomQuestion,x1,x2, x3;
 			private boolean ca1, ca2, ca3, ca4, sp, a1select, a2select, a3select, a4select, correct, wrong;
 			private JButton submit, next2;
 			private ButtonGroup answers;
 			private JRadioButton a1, a2, a3, a4;
-			private JTextArea question;
+			private JTextArea question, treatCountDisplay;
 			private Font f, smallf, mediumf;
+			private UnlockTraitsPanel utp;
+			
 
 			public Quiz()
-			{
-				f = new Font ("URW Gothic L", Font.PLAIN, 25);
-				mediumf = new Font ("URW Gothic L", Font.PLAIN, 20);
-				smallf = new Font ("URW Gothic L", Font.PLAIN, 15);
+			{	
+
 				setLayout(null);
 				setBackground(mainBlue);
-
+				
 				question = new JTextArea();
 				question.setLineWrap(true);
 				question.setSize(530, 70);
 				question.setLocation(30, 50);
 				question.setFont(smallf);
 				question.setBackground(mainBlue);
-
+				
 				add(question);
+				
+				treatCountDisplay = new JTextArea();
+				treatCountDisplay.setLineWrap(true);
+				treatCountDisplay.setSize(100, 100);
+				treatCountDisplay.setLocation(500, 0);
+				treatCountDisplay.setFont(smallf);
+				treatCountDisplay.setOpaque(false);
 
+				//treatCountDisplay.setBackground(mainBlue);
+				
+				add(treatCountDisplay);
+	
+				
 				submit = new JButton("Submit");
 				submit.setFont(mediumf);
 				submit.setText("Submit");
 				submit.setSize(100, 50);
 				submit.setLocation(300,500);
 				submit.addActionListener(this);
-
+				
 				add(submit);
-
+				
 				next2 = new JButton("Next");
 				next2.setFont(mediumf);
 				next2.setText("Next");
 				next2.setSize(100, 50);
 				next2.setLocation(400,500);
 				next2.addActionListener(this);
-
+				
 				add(next2);
-
+				
 				answers = new ButtonGroup();			//adding a buttongroup
 				a1 = new JRadioButton();
 				a2 = new JRadioButton();
 				a3 = new JRadioButton();
 				a4 = new JRadioButton();
-
-
+				
+			
 				answers.add(a1);						//adding buttons to a buttongroup
 				answers.add(a2);
 				answers.add(a3);
@@ -577,33 +616,33 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				a2.addActionListener(this);
 				a3.addActionListener(this);
 				a4.addActionListener(this);
-
+				
 				a1.setSize(600,40);
 				a2.setSize(600,40);
 				a3.setSize(600,40);
 				a4.setSize(600,40);
-
-				a1.setLocation(10, 130);
-				a2.setLocation(10, 230);
-				a3.setLocation(10, 330);
-				a4.setLocation(10, 430);
-
+				
+				a1.setLocation(30, 130);
+				a2.setLocation(30, 230);
+				a3.setLocation(30, 330);
+				a4.setLocation(30, 430);
+				
 				a1.setFont(smallf);
 				a2.setFont(smallf);
 				a3.setFont(smallf);
 				a4.setFont(smallf);
-
+				
 				a1.setBackground(mainBlue);
 				a2.setBackground(mainBlue);
 				a3.setBackground(mainBlue);
 				a4.setBackground(mainBlue);
-
-
+				
+				
 				add(a1);
 				add(a2);
 				add(a3);
 				add(a4);
-
+				
 				ca1 = false;								//initializing all booleans as false/ they are eventually true when the buttons are clicked
 				ca2 = false;
 				ca3 = false;
@@ -613,32 +652,27 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				a2select = false;
 				a3select = false;
 				a4select = false;
-
+				
 				correct = false;
 				wrong = false;
-
+				
 				inFileName = "QuizQuestions.txt";
 				line = "";
 				fullQuestion = "";
 				QuizQs = new String[30];
 
-				//getTextFile();
-				//getText();
-
 
 				randomQuestion = (int)((Math.random()*29)+1);		//randomizing an integer when the user clicks submit in the question
-				//randomQuestion = 4;
 				getTextFile();
 				getText();
 				setVariables();
 				setQuestion();
 				displayRadioButtons();
-				//actionPerformed();
-
+		
 			}
 			public void getTextFile() 								//method is just for making sure that the textFile for the quiz questions can be found
 			{
-				File inFile = new File(inFileName);
+				File inFile = new File(inFileName);								
 				try
 				{
 					input = new Scanner(inFile);
@@ -651,21 +685,21 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 				}
 			}
-
+			
 
 			public void getText()									//method from reading input from the tutorial.txt file so we c an print the stuff from the tutorial.txt file on to the JTextArea
-			{
+			{	
 
 				while(input.hasNext())
 				{
 					line = input.nextLine();
-
+					
 					fullTextFile = fullTextFile + "\n" + line;		//creating a string to add to the textArea
 				}
-
+				
 				for(x1=0;x1<29;x1++)
 				{
-
+			
 					fullQuestion = fullTextFile.substring(0, fullTextFile.indexOf("---")+3)	;		//this separates the big string that is the textFile of quiz questions into individual questions
 					fullTextFile = fullTextFile.substring(fullQuestion.length()+4);					//resets the big string of the text file as the text file minus the string that was just read
 					QuizQs[x1] = fullQuestion;														//adds question to a value on the array
@@ -673,72 +707,75 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				//System.out.print(fullQuestion);					//setting the text to what is in the tutorial.txt file
 			}
 			public void setVariables()								//this method is only fully excecuted if the random number generated is the loop integer value
-			{														/*when the random integer value has arrived then it separates the text file into choices ABCD to
+			{														/*when the random integer value has arrived then it separates the text file into choices ABCD to 
 																		to set the text to the radiobuttons*/
 
-
+				randomQuestion = (int)((Math.random()*29)+1);
 				for (x3 = 0; x3<29 ; x3++)
 				{
 					fullQuestion2 = QuizQs[x3];
-
+					if(fullQuestion2.equals(""))
+					{
+						fullQuestion2 = QuizQs[x3 +1];
+					}
 					if (x3 == randomQuestion)
 					{
 						qNumber = fullQuestion2.substring((fullQuestion2.indexOf(">") +1), (fullQuestion2.indexOf("<")));
-						fullQuestion2 = fullQuestion2.substring(qNumber.length() + 3);
-
-
+						fullQuestion2 = fullQuestion2.substring(qNumber.length() + 3); 
+						
+						
 						choiceA = fullQuestion2.substring(fullQuestion2.indexOf("a)")+2, fullQuestion2.indexOf("b)"));
 						fullQuestion2 = fullQuestion2.substring(choiceA.length()+2);
-
-
+						
+						
 						choiceB = fullQuestion2.substring(fullQuestion2.indexOf("b)")+2, fullQuestion2.indexOf("c)"));
 						fullQuestion2 = fullQuestion2.substring(choiceB.length()+2);//choiceB = fullQuestion.substring(beginIndex, endIndex)
 
 						choiceC = fullQuestion2.substring(fullQuestion2.indexOf("c)")+2, fullQuestion2.indexOf("d)"));
 						fullQuestion2 = fullQuestion2.substring(choiceC.length() +2);//choiceB = fullQuestion2.substring(beginIndex, endIndex)
 
-
+						
 						choiceD = fullQuestion2.substring(fullQuestion2.indexOf("d)")+2, fullQuestion2.indexOf("---"));
 						fullQuestion2 = fullQuestion2.substring(choiceD.length()+4);//choiceB = fullQuestion.substring(beginIndex, endIndex)
-
-
+					
+						QuizQs[x3] = "";	
 						if (choiceA.indexOf("!") == 0) 	//this if else block is to determine which one of the answers is correct, in the text file the correct answer has an ! in the front
 						{								// boolean for each answer choice is set as true w respective correct answers
 						System.out.print(choiceA);
 						ca1 = true;
 						choiceA = choiceA.substring(1);
 						}
-
+						
 						else if (choiceB.indexOf("!") == 0)
 						{
 						System.out.print(choiceB);
 						ca2 = true;
 						choiceB = choiceB.substring(1);
 						}
-
+						
 						else if (choiceC.indexOf("!") == 0)
 						{
 						System.out.print(choiceC);
 						ca3 = true;
 						choiceC = choiceC.substring(1);
 						}
-
+						
 						else if (choiceD.indexOf("!") == 0)
 						{
 						System.out.print(choiceD);
 						ca4 = true;
 						choiceD = choiceD.substring(1);
-
+						
 						}
 
 					}
-
+					
 				}
 			}
 			public void setQuestion()
 			{
 				question.setText(qNumber);
-
+				
 			}
 			public void displayRadioButtons()
 			{
@@ -746,27 +783,15 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				a2.setFont(smallf);
 				a3.setFont(smallf);
 				a4.setFont(smallf);
-
+				
 				a1.setText(choiceA);
 				a2.setText(choiceB);
 				a3.setText(choiceC);
 				a4.setText(choiceD);
-
-
+				
+				
 			}
 			public void actionPerformed(ActionEvent e){
-				String command = e.getActionCommand();
-				if(command.equals("Submit"))			//tells the computer to go to changeQuestions when submit is pressed
-				{
-					sp = true;
-					changeQuestions();
-
-				}
-				else if(command.equals("Next"))
-				{
-					tntPanel2.getCards().show(tntPanel2, "Show Dog");
-
-				}
 
 				if(a1.isSelected())					//if else block for if a radiobutton is selected, respecitve booleans are set as true and others are set as false
 				{
@@ -775,8 +800,8 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					a3select = false;
 					a4select = false;
 				}
-
-
+					
+				
 				else if(a2.isSelected())
 				{
 					a2select = true;
@@ -784,7 +809,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					a3select = false;
 					a4select = false;
 				}
-
+		
 				else if(a3.isSelected())
 				{
 					a3select = true;
@@ -801,9 +826,24 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					a3select = false;
 
 				}
+				String command = e.getActionCommand();
+				if(command.equals("Submit"))			//tells the computer to go to changeQuestions when submit is pressed
+				{
+					sp = true;
+					changeQuestions();
 
-
-
+				}
+				else if(command.equals("Next")&& correctCount ==6)
+				{
+					
+					
+					tntPanel2.getCards().show(tntPanel2, "Show Dog");
+				
+				}
+	
+				
+				
+					
 			}
 			public void changeQuestions()					//method that changes the text of the radiobuttons if the user answers correctly
 			{
@@ -846,7 +886,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					correct = false;
 					wrong = true;
 				}
-
+				
 				if (correct == true)
 				{
 					getTextFile();
@@ -854,32 +894,177 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					setVariables();
 					setQuestion();
 					displayRadioButtons();
-
+					correctCount++;
+					treatCount = treatCount + 3;
+					treatCountDisplay.setText("Treat Count \n" + treatCount);
+					getter();
+					
 					System.out.println("correct");
 				}
 				else if (wrong == true)
 				{
+					treatCount = treatCount - 1;
+					treatCountDisplay.setText("Treat Count \n" + treatCount);
 					System.out.println("wrong");
+					
 				}
-
-
-
+	
+					
+			
 			}
-
-
-
+			
+		
+	
 		}
 		class ShowTraits extends JPanel	implements ActionListener									//panel that reveals what the traits are using draw strings
 		{
+			JTextArea trait1, trait2, trait3, trait4, trait5, trait6;
+			private Scanner input;
+			private String traitsFile, line, fullTraits, individual, individual2, hairColor, ears, eyes, hairLength, nose, legs;
+			private String[]dogs;
 
 			public ShowTraits(){
+				
+				setLayout(null);
+				
+				trait1 = new JTextArea();
+				trait1.setLineWrap(true);
+				trait1.setSize(600, 100);
+				trait1.setLocation(0, 0);
+				trait1.setFont(smallf);
+				trait1.setBackground(mainBlue);	
+				add(trait1);
+				
+				trait2 = new JTextArea();
+				trait2.setLineWrap(true);
+				trait2.setSize(600, 100);
+				trait2.setLocation(0, 100);
+				trait2.setFont(smallf);
+				trait2.setBackground(mainBlue);	
+				add(trait2);
+				
+				trait3 = new JTextArea();
+				trait3.setLineWrap(true);
+				trait3.setSize(600, 100);
+				trait3.setLocation(0, 200);
+				trait3.setFont(smallf);
+				trait3.setBackground(mainBlue);	
+				add(trait3);
+				
+				trait4 = new JTextArea();
+				trait4.setLineWrap(true);
+				trait4.setSize(600, 100);
+				trait4.setLocation(0, 300);
+				trait4.setFont(smallf);
+				trait4.setBackground(mainBlue);	
+				add(trait4);
+				
+				trait5 = new JTextArea();
+				trait5.setLineWrap(true);
+				trait5.setSize(600, 100);
+				trait5.setLocation(0, 400);
+				trait5.setFont(smallf);
+				trait5.setBackground(mainBlue);	
+				add(trait5);
+				
+				trait6 = new JTextArea();
+				trait6.setLineWrap(true);
+				trait6.setSize(600, 100);
+				trait6.setLocation(0, 500);
+				trait6.setFont(smallf);
+				trait6.setBackground(mainBlue);	
+				add(trait6);
+				
+				traitsFile = "PuppyTraitsOnly.txt";
+				
+				dogs = new String[3];
+				
+				getText();
+				getWords();
 
 			}
-			public void actionPerformed(ActionEvent e)
+			public void getText()
 			{
-			}			//
-		}
+				File inFile = new File(traitsFile);								
+				try
+				{
+					input = new Scanner(inFile);
 
+				}
+				catch (FileNotFoundException e)
+				{
+					System.out.println("Error. Cannot Find/Open File " + traitsFile );
+					System.exit(1);
+
+				}				
+			}
+			public void getWords()
+			{
+				while(input.hasNext())
+				{
+					line = input.nextLine();
+					
+					fullTraits = fullTraits + "\n" + line;			//creating a string to add to the textArea
+				}
+				System.out.print(fullTraits);
+			}
+			public void getTraits() 	//method is used to take the traits from the text file based off the bog the user chose in the use dog panel
+			{
+				for(int x=0;x<=2;x++)
+				{
+					individual = fullTraits.substring(0, fullTraits.indexOf("---") + 3);
+					System.out.println(individual);
+					dogs[x] = individual;
+					fullTraits = fullTraits.substring(individual.length());
+				}
+				for(int x2=0;x2<=2;x2++)
+				{
+					if(x2 == db-1);
+					{
+						//ears, eyes, hairLength, nose, legs;
+						individual2 = dogs[x2];
+						hairColor = (individual2.substring(3, individual2.indexOf("2)")));
+						ears = (individual2.substring(individual2.indexOf("2)") +2, individual2.indexOf("3)")));
+						eyes = (individual2.substring(individual2.indexOf("3)") +2, individual2.indexOf("4)")));
+						hairLength = (individual2.substring(individual2.indexOf("4)") +2, individual2.indexOf("5)")));
+						nose = (individual2.substring(individual2.indexOf("5)") +2, individual2.indexOf("6)")));
+						legs = (individual2.substring(individual2.indexOf("6)") +2, individual2.indexOf("---")));
+						setTraits();
+						
+					}
+				}
+			}
+			public void setTraits()
+			{
+				if(correctCount == 1)
+				{
+				trait1.setText(hairColor);
+				}
+				else if(correctCount == 2)
+				{
+				trait2.setText(ears);
+				}
+				else if(correctCount == 3)
+				{
+				trait3.setText(eyes);
+				}
+				else if(correctCount == 4)
+				{
+				trait4.setText(hairLength);
+				}
+				else if(correctCount == 5)
+				{
+				trait5.setText(nose);
+				}
+				else if(correctCount == 6)
+				{
+				trait6.setText(legs);
+				}
+			}
+			
+			public void actionPerformed(ActionEvent e){}			//
+		}
+		
 	}
 	class ShowDog extends JPanel implements ActionListener
 	{
@@ -889,19 +1074,23 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		public ShowDog(TreatsNTraitsPanel tp)
 		{
 			tntPanel2 = tp;
-			//Font f = new Font ("URW Gothic L", Font.PLAIN, 35);
-			dog1 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog1.png").getImage();
-			dog2 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog2.png").getImage();
-			dog3 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog3.png").getImage();
+			Font f = new Font ("URW Gothic L", Font.PLAIN, 35);
+			//dog1 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog1.png").getImage();			//IMAGES ON NIKITAS LAPTOP
+			//dog2 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog2.png").getImage();
+			//dog3 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog3.png").getImage();
+			
+			dog1 = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/dog1.png").getImage();			//IMAGES ON NIKITAS LAPTOP
+			dog2 = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/dog2.png").getImage();
+			dog3 = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/dog3.png").getImage();
 
-		/*	back = new JButton("Back");					//setting variables to the buttons
+			back = new JButton("Back");					//setting variables to the buttons
 			back.addActionListener(this);
 			add(back);
 
 			back.setLocation(1000,530);
 			back.setSize(100,50);
 			back.setFont(f);
-			back.setText("Back");*/
+			back.setText("Back");
 
 		}
 
@@ -914,17 +1103,18 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 		}
 		public void actionPerformed(ActionEvent e)
-		{}/*
+		{
 			if(e.getSource() == back)							//setting booleans to true if each button is selected
 			{
 				getCards();										//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Complete Dominance");
 			}
 
-		}*/
-	}
+		}
 	}
 
+	}
+	
 
 
 //public class quizPanel
@@ -944,7 +1134,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 //Math.random to randomize the questions
 //assign a number to each question
 //if/else to read from text file according to number from math.rand
-//if/else block when the user answers a question
+//if/else block when the user answers a question 
 //add three treats if correct answer is selected
 //calls repaint() if incorrect
 //if/else blocks for what to do when user clicks next
