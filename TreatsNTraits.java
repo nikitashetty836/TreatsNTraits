@@ -91,7 +91,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 	Font f, smallf, mediumf;
 	
 	private int treatCount, db;
-	private String puppyTraits;
+	private String individual, individual2;
 	Color mainBlue;
 
 	public TreatsNTraitsPanel()////////////// write constructor
@@ -101,7 +101,6 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		smallf = new Font ("URW Gothic L", Font.PLAIN, 15);
 		
 		treatCount = 0;
-		puppyTraits = "jiggly";
 		mainBlue = new Color(183,255,255);
 
 
@@ -847,7 +846,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				else if(command.equals("Next"))//&& correctCount >=6 )
 				{
 					
-					
+					System.out.print("/n + haha" + individual2);
 					tntPanel2.getCards().show(tntPanel2, "Show Dog");
 				
 				}
@@ -932,7 +931,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		{
 			JTextArea trait1, trait2, trait3, trait4, trait5, trait6;
 			private Scanner input;
-			private String traitsFile, line, fullTraits, individual, individual2, hairColor, ears, eyes, hairLength, nose, legs;
+			private String traitsFile, line, fullTraits, hairColor, ears, eyes, hairLength, nose, legs;
 			private String[]dogs;
 			
 			//
@@ -1048,8 +1047,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 						//ears, eyes, hairLength, nose, legs;
 						
 						individual2 = dogs[x2];
-						puppyTraits = individual2;
-						System.out.println(puppyTraits);
+						System.out.println("\n xyz \n" + individual2);
 						hairColor = (individual2.substring(individual2.indexOf("1)") +2, individual2.indexOf("2)")));
 						ears = (individual2.substring(individual2.indexOf("2)") +2, individual2.indexOf("3)")));
 						eyes = (individual2.substring(individual2.indexOf("3)") +2, individual2.indexOf("4)")));
@@ -1061,6 +1059,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			}
 			public void setTraits()		//this method sets the text to each JTextArea depending on how many questions are answered correctly
 			{			//one right answer, one more text area writes the designated trait
+				
 				if(correctCount == 1)
 				{
 				trait1.setText(hairColor);
@@ -1085,6 +1084,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				{
 				trait6.setText(legs);
 				}
+				System.out.println("\n nlj \n" + individual2);
 			}
 			
 			public void actionPerformed(ActionEvent e){}			//
@@ -1116,7 +1116,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			dog1 = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/dog1.png").getImage();			//IMAGES ON NIKITAS LAPTOP
 			dog2 = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/dog2.png").getImage();
 			dog3 = new ImageIcon("/Users/nehajagathesan/Documents/workspace/TreatsNTraits.java/dog3.png").getImage();
-
+			
 			back = new JButton("Back");					//setting variables to the buttons
 			back.addActionListener(this);
 			
@@ -1125,6 +1125,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			back.setSize(100,50);
 			back.setFont(f);
 			back.setText("Back");
+			System.out.print("final \n" + individual2);
 
 		}
 
@@ -1136,7 +1137,8 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				getCards();										//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Complete Dominance");
 			}
-
+			
+			
 		}
 		class ShowOffspring extends JPanel
 		{
@@ -1167,8 +1169,8 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			}
 			public void ShowTraits()
 			{
-				System.out.print(puppyTraits);
-				childTraits.setText(puppyTraits);
+				
+				childTraits.setText(individual2);
 				
 			}
 			public void paintComponent(Graphics g)
