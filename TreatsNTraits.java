@@ -1125,7 +1125,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			back.setSize(100,50);
 			back.setFont(f);
 			back.setText("Back");
-			System.out.print("final \n" + individual2);
+			
 
 		}
 
