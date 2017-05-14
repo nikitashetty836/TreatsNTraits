@@ -86,10 +86,12 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 	private UnlockTraitsPanel utp;
 	private ShowDog sd;
 
+
 	
 	Font f, smallf, mediumf;
 	
 	private int treatCount, db;
+	private String puppyTraits;
 	Color mainBlue;
 
 	public TreatsNTraitsPanel()////////////// write constructor
@@ -99,7 +101,8 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		smallf = new Font ("URW Gothic L", Font.PLAIN, 15);
 		
 		treatCount = 0;
-		mainBlue = new Color(188,255,255);
+		puppyTraits = "jiggly";
+		mainBlue = new Color(183,255,255);
 
 
 		cards = new CardLayout();
@@ -375,9 +378,9 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			
 
 
-			dogButt1 = new JButton(" ");//declare both buttons
-			dogButt2 = new JButton("  ");
-			dogButt3 = new JButton("   ");
+			dogButt1 = new JButton("x");//declare both buttons
+			dogButt2 = new JButton("y");
+			dogButt3 = new JButton("z");
 			
 			dogButt1.addActionListener(this);
 			dogButt2.addActionListener(this);
@@ -433,22 +436,22 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 		{
 		
 			String command = e.getActionCommand();							//setting local vairable to command recieved from button
-			if(command.equals(" "))											//setting booleans to true if each button is selected
+			if(command.equals("x"))											//setting booleans to true if each button is selected
+			{
+				getCards();
+				db = 0;													//show the next card if the user clicks on a certain button
+				tntPanel2.getCards().show(tntPanel2, "Instructions");
+			}
+			else if(command.equals("y"))											//setting booleans to true if each button is selected
 			{
 				getCards();
 				db = 1;													//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Instructions");
 			}
-			else if(command.equals("  "))											//setting booleans to true if each button is selected
+			if(command.equals("z"))											//setting booleans to true if each button is selected
 			{
 				getCards();
 				db = 2;													//show the next card if the user clicks on a certain button
-				tntPanel2.getCards().show(tntPanel2, "Instructions");
-			}
-			if(command.equals("   "))											//setting booleans to true if each button is selected
-			{
-				getCards();
-				db = 3;													//show the next card if the user clicks on a certain button
 				tntPanel2.getCards().show(tntPanel2, "Instructions");
 			}
 			
@@ -533,9 +536,17 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 		}
 		public void getter(){
+			if (correctCount == 1)
+			{
 			st.getText();
 			st.getWords();
 			st.getTraits();
+			st.setTraits();
+			}
+			else
+			{
+				st.setTraits();
+			}
 			
 		}
 		class Quiz extends JPanel implements ActionListener
@@ -710,7 +721,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			{														/*when the random integer value has arrived then it separates the text file into choices ABCD to 
 																		to set the text to the radiobuttons*/
 
-				randomQuestion = (int)((Math.random()*29)+1);
+
 				for (x3 = 0; x3<29 ; x3++)
 				{
 					fullQuestion2 = QuizQs[x3];
@@ -741,28 +752,28 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 						QuizQs[x3] = "";	
 						if (choiceA.indexOf("!") == 0) 	//this if else block is to determine which one of the answers is correct, in the text file the correct answer has an ! in the front
 						{								// boolean for each answer choice is set as true w respective correct answers
-						System.out.print(choiceA);
+						//System.out.print(choiceA);
 						ca1 = true;
 						choiceA = choiceA.substring(1);
 						}
 						
 						else if (choiceB.indexOf("!") == 0)
 						{
-						System.out.print(choiceB);
+						//System.out.print(choiceB);
 						ca2 = true;
 						choiceB = choiceB.substring(1);
 						}
 						
 						else if (choiceC.indexOf("!") == 0)
 						{
-						System.out.print(choiceC);
+						//System.out.print(choiceC);
 						ca3 = true;
 						choiceC = choiceC.substring(1);
 						}
 						
 						else if (choiceD.indexOf("!") == 0)
 						{
-						System.out.print(choiceD);
+						//System.out.print(choiceD);
 						ca4 = true;
 						choiceD = choiceD.substring(1);
 						
@@ -833,7 +844,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					changeQuestions();
 
 				}
-				else if(command.equals("Next")&& correctCount ==6)
+				else if(command.equals("Next"))//&& correctCount >=6 )
 				{
 					
 					
@@ -848,7 +859,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			public void changeQuestions()					//method that changes the text of the radiobuttons if the user answers correctly
 			{
 
-				System.out.println();
+				//System.out.println();
 				if(sp == true &&  a1select == true && ca1 == true)
 				{
 
@@ -889,8 +900,9 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				
 				if (correct == true)
 				{
+					randomQuestion = (int)((Math.random()*29)+1);	//randomizes integer for the next question
+					
 					getTextFile();
-					getText();
 					setVariables();
 					setQuestion();
 					displayRadioButtons();
@@ -899,13 +911,13 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 					treatCountDisplay.setText("Treat Count \n" + treatCount);
 					getter();
 					
-					System.out.println("correct");
+					//System.out.println("correct");
 				}
 				else if (wrong == true)
 				{
 					treatCount = treatCount - 1;
 					treatCountDisplay.setText("Treat Count \n" + treatCount);
-					System.out.println("wrong");
+					//System.out.println("wrong");
 					
 				}
 	
@@ -922,11 +934,12 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 			private Scanner input;
 			private String traitsFile, line, fullTraits, individual, individual2, hairColor, ears, eyes, hairLength, nose, legs;
 			private String[]dogs;
-
+			
+			//
 			public ShowTraits(){
 				
 				setLayout(null);
-				
+				fullTraits = "";
 				trait1 = new JTextArea();
 				trait1.setLineWrap(true);
 				trait1.setSize(600, 100);
@@ -1004,38 +1017,50 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				{
 					line = input.nextLine();
 					
-					fullTraits = fullTraits + "\n" + line;			//creating a string to add to the textArea
+					fullTraits = fullTraits + line + "\n";			//creating a string to add to the textArea
 				}
-				System.out.print(fullTraits);
+				
 			}
 			public void getTraits() 	//method is used to take the traits from the text file based off the bog the user chose in the use dog panel
 			{
-				for(int x=0;x<=2;x++)
+				//System.out.print(fullTraits);
+				for(int x=0;x<=2;x++)	//separates the fullTraits String into seprate sections of traits for each dog
 				{
+					if (x==0 || x==1)
+					{
 					individual = fullTraits.substring(0, fullTraits.indexOf("---") + 3);
-					System.out.println(individual);
 					dogs[x] = individual;
 					fullTraits = fullTraits.substring(individual.length());
+					}
+					
+					else if(x == 2)
+					{
+						//System.out.println(fullTraits);
+						individual = fullTraits.substring(0, fullTraits.indexOf("---")+3);
+						dogs[x] = individual;
+					}
+					
 				}
 				for(int x2=0;x2<=2;x2++)
 				{
-					if(x2 == db-1);
+					if(x2 == db)
 					{
 						//ears, eyes, hairLength, nose, legs;
+						
 						individual2 = dogs[x2];
-						hairColor = (individual2.substring(3, individual2.indexOf("2)")));
+						puppyTraits = individual2;
+						System.out.println(puppyTraits);
+						hairColor = (individual2.substring(individual2.indexOf("1)") +2, individual2.indexOf("2)")));
 						ears = (individual2.substring(individual2.indexOf("2)") +2, individual2.indexOf("3)")));
 						eyes = (individual2.substring(individual2.indexOf("3)") +2, individual2.indexOf("4)")));
 						hairLength = (individual2.substring(individual2.indexOf("4)") +2, individual2.indexOf("5)")));
 						nose = (individual2.substring(individual2.indexOf("5)") +2, individual2.indexOf("6)")));
 						legs = (individual2.substring(individual2.indexOf("6)") +2, individual2.indexOf("---")));
-						setTraits();
-						
 					}
 				}
 			}
-			public void setTraits()
-			{
+			public void setTraits()		//this method sets the text to each JTextArea depending on how many questions are answered correctly
+			{			//one right answer, one more text area writes the designated trait
 				if(correctCount == 1)
 				{
 				trait1.setText(hairColor);
@@ -1069,11 +1094,20 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 	class ShowDog extends JPanel implements ActionListener
 	{
 		private TreatsNTraitsPanel tntPanel2;
+		private ShowOffspring so;
+		private ParentPool pp;
 		private Image dog1, dog2, dog3;
 		private JButton back;
 		public ShowDog(TreatsNTraitsPanel tp)
 		{
+			setLayout(new GridLayout(1,2));
 			tntPanel2 = tp;
+			
+			so = new ShowOffspring();
+			pp = new ParentPool();
+			add(so);
+			add(pp);
+			
 			Font f = new Font ("URW Gothic L", Font.PLAIN, 35);
 			//dog1 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog1.png").getImage();			//IMAGES ON NIKITAS LAPTOP
 			//dog2 = new ImageIcon("/Users/nikit/Desktop/TreatsNTraits/dog2.png").getImage();
@@ -1085,7 +1119,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 			back = new JButton("Back");					//setting variables to the buttons
 			back.addActionListener(this);
-			add(back);
+			
 
 			back.setLocation(1000,530);
 			back.setSize(100,50);
@@ -1094,14 +1128,7 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 
 		}
 
-		public void paintComponent(Graphics g)
-		{
 
-			g.drawImage(dog1, 10, 10 , 300, 500, this);
-			g.drawImage(dog2, 600, 10 , 300, 600, this);
-			g.drawImage(dog3, 600, 300 , 300, 200, this);
-
-		}
 		public void actionPerformed(ActionEvent e)
 		{
 			if(e.getSource() == back)							//setting booleans to true if each button is selected
@@ -1110,6 +1137,53 @@ class TreatsNTraitsPanel extends JPanel  ////////////////////////////// class wi
 				tntPanel2.getCards().show(tntPanel2, "Complete Dominance");
 			}
 
+		}
+		class ShowOffspring extends JPanel
+		{
+			private JTextArea parentTraits, childTraits;
+			public ShowOffspring()
+			{
+				setLayout(null);
+				setBackground(Color.MAGENTA);
+				
+				parentTraits = new JTextArea();
+				parentTraits.setLineWrap(true);
+				parentTraits.setSize(250, 300);
+				parentTraits.setLocation(0, 0);
+				parentTraits.setFont(f);
+				parentTraits.setBackground(Color.GREEN);	
+				add(parentTraits);
+				
+				childTraits = new JTextArea();
+				childTraits.setLineWrap(true);
+				childTraits.setSize(250, 300);
+				childTraits.setLocation(350, 0);
+				childTraits.setFont(smallf);
+				childTraits.setBackground(Color.GREEN);	
+				add(childTraits);
+				
+				ShowTraits();
+				
+			}
+			public void ShowTraits()
+			{
+				System.out.print(puppyTraits);
+				childTraits.setText(puppyTraits);
+				
+			}
+			public void paintComponent(Graphics g)
+			{
+				if (db ==0)
+				g.drawImage(dog1, 10, 10 , 300, 400, this);
+				else if (db ==1)
+				g.drawImage(dog2, 100, 200 , 400, 400, this);
+				else if(db ==2)
+				g.drawImage(dog3, 600, 300 , 300, 200, this);
+			}
+		}
+		class ParentPool extends JPanel
+		{
+			
 		}
 	}
 
